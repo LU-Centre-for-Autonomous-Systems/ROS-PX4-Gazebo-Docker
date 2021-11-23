@@ -1,0 +1,16 @@
+name: publish
+
+on: [push]
+
+jobs:
+  publish-docker-image:
+    runs-on: ubuntu-18.04
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Build the ewanpugh/px4-gazebo-ros Docker image
+      run: |
+        echo $CR_PAT | docker login ghcr.io -u ewan-pugh --password-stdin
+      env:
+        CR_PAT: ${{ secrets.CR_PAT }}
