@@ -8,6 +8,6 @@ SHELL ["/bin/bash", "-c"]
 
 RUN ./install_everything.sh
 
-# CMD ./px4_launch.sh
+LABEL org.opencontainers.image.source="https://github.com/LU-Centre-for-Autonomous-Systems/ROS-PX4-Gazebo-Docker"
 
 # USER MUST RUN DOCKERFILE WITH --network host ARGUMENT!
