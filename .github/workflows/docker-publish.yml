@@ -9,8 +9,15 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: Build the ewanpugh/px4-gazebo-ros Docker image
+    - name: Login to GitHub Container Registry
+      uses: docker/login-action@v1
+      with:
+        registry: ghcr.io
+        username: ewan-pugh
+        password: ${{ secrets.CR_PAT }}
+
+    - name: Build the hello-world Docker image
       run: |
-        echo $CR_PAT | docker login ghcr.io -u ewan-pugh --password-stdin
-      env:
-        CR_PAT: ${{ secrets.CR_PAT }}
+        docker build . --tag ghcr.io/ewan-pugh/px4-gazebo-ros:latest
+        docker push ghcr.io/ewan-pugh/px4-gazebo-ros:latest
+
