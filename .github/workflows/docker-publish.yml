@@ -19,5 +19,5 @@ jobs:
     - name: Build the hello-world Docker image
       run: |
         docker build . --tag ghcr.io/lu-centre-for-autonomous-systems/px4-gazebo-ros:latest
-        docker push ghcr.io/ewan-pugh/px4-gazebo-ros:latest
+        docker push ghcr.io/lu-centre-for-autonomous-systems/px4-gazebo-ros:latest
 
