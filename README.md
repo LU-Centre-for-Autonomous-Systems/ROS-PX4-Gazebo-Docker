@@ -1,11 +1,16 @@
 # ROS PX4 Gazebo Docker
-## Run on Linux:
-Install Docker for Linux
-Configure Display
+## Run on Ubuntu:
+**It is advised that you use Ubuntu 18.04 with this docker**
+1. Install Docker for Ubuntu by following the instructions [here](https://docs.docker.com/engine/install/ubuntu/)
+2. Pull docker
 ```shell
-xhost +local:`sudo docker inspect --format='{{ .Config.Hostname }}' ewanpugh/px4-gazebo-ros`
+sudo docker pull ghcr.io/lu-centre-for-autonomous-systems/px4-gazebo-ros:latest
 ```
-Run docker
+3. Configure Display:
 ```shell
-sudo docker run -it --privileged --network host -e DISPLAY=$DISPLAY -e SIM_MODEL=iris -e SIM_WORLD=baylands -v /tmp/.X11-unix:/tmp/.X11-unix ewanpugh/px4-gazebo-ros ./px4_launch.sh
+xhost +local:`sudo docker inspect --format='{{ .Config.Hostname }}' ghcr.io/lu-centre-for-autonomous-systems/px4-gazebo-ros`
+```
+4. Run docker
+```shell
+sudo docker run -it --privileged --network host -e DISPLAY=$DISPLAY -e SIM_MODEL=iris -e SIM_WORLD=baylands -v /tmp/.X11-unix:/tmp/.X11-unix ghcr.io/lu-centre-for-autonomous-systems/px4-gazebo-ros ./px4_launch.sh
 ```
