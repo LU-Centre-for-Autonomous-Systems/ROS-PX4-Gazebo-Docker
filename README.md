@@ -13,5 +13,5 @@ xhost +local:`sudo docker inspect --format='{{ .Config.Hostname }}' ghcr.io/lu-c
 ```
 ### Run the docker
 ```shell
-sudo docker run -it --privileged --network host -e DISPLAY=$DISPLAY -e SIM_MODEL=iris -e SIM_WORLD=baylands -v /tmp/.X11-unix:/tmp/.X11-unix ghcr.io/lu-centre-for-autonomous-systems/px4-gazebo-ros ./px4_launch.sh
+sudo docker run -it --privileged --network host -e DISPLAY=$DISPLAY -e SIM_MODEL=iris -e SIM_WORLD=empty -v /tmp/.X11-unix:/tmp/.X11-unix ghcr.io/lu-centre-for-autonomous-systems/px4-gazebo-ros ./px4_launch.sh
 ```
