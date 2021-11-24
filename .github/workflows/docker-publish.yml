@@ -16,7 +16,7 @@ jobs:
         username: ewan-pugh
         password: ${{ secrets.CR_PAT }}
 
-    - name: Build the hello-world Docker image
+    - name: Build the Docker image
       run: |
         docker build . --tag ghcr.io/lu-centre-for-autonomous-systems/px4-gazebo-ros:latest
         docker push ghcr.io/lu-centre-for-autonomous-systems/px4-gazebo-ros:latest
